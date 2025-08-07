@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegram‑миниапы и боты для бизнеса за 14–28 дней</title>
+  <meta name="description" content="Продающие Telegram‑миниапы и боты: онлайн‑запись, каталог, оплата через СБП. Рост заявок на 30%+ в первый месяц по данным наших проектов.">
+  <style>
+    :root{
+      --bg:#0b1020;
+      --panel:#0f162e;
+      --card:#111a34cc;
+      --stroke:#233154;
+      --text:#e6ecff;
+      --muted:#c8d7ff;
+      --accent:#6ea8ff;
+      --accent-2:#7bffbf;
+      --shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05);
+      --radius: 16px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 1200px at 80% -20%, rgba(110,168,255,.25), transparent 60%),
+        radial-gradient(800px 800px at 0% 0%, rgba(123,255,191,.12), transparent 50%),
+        var(--bg);
+      line-height:1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{opacity:.9}
+    .container{width:100%;max-width:1180px;margin:0 auto;padding:0 24px}
+    .btn{display:inline-block;padding:14px 20px;border-radius:14px;font-weight:700;letter-spacing:.2px;border:1px solid transparent;transition:.25s transform,.25s box-shadow,.25s background}
+    .btn-primary{background:linear-gradient(135deg,var(--accent),#5c8dff);color:#0b1020;box-shadow:0 8px 24px rgba(110,168,255,.35)}
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(110,168,255,.45)}
+    .btn-ghost{background:transparent;border-color:#3a4c7a;color:var(--text)}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,16,32,.6);backdrop-filter: blur(8px);border-bottom:1px solid #182447}
+    header .wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    header nav a{margin-left:16px;color:var(--text);font-weight:600;opacity:.9}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800}
+    .logo svg{width:22px;height:22px;filter:drop-shadow(0 0 6px rgba(123,255,191,.5))}
+    .hero{padding:84px 0 56px;border-bottom:1px solid #182447}
+    .title{font-size:40px;line-height:1.15;margin:0 0 10px}
+    .subtitle{font-size:18px;color:var(--muted);margin:0 0 24px}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .badge{font-size:12px;padding:7px 10px;border:1px solid #2a3b68;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border-radius:999px;color:#cfe0ff}
+    section{padding:68px 0}
+    .section-title{font-size:28px;margin:0 0 16px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .card{border:1px solid var(--stroke);border-radius:var(--radius);padding:20px;background:var(--card);box-shadow:var(--shadow)}
+    .card h3{margin-top:0}
+    .glass{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid #223159}
+    .price{font-size:26px;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;margin:10px 0 0}
+    .case h3{margin:0 0 8px}
+    .footnote{font-size:12px;color:#9fb1d9}
+    footer{background:rgba(11,16,32,.6);border-top:1px solid #182447;padding:28px 0}
+    .cta-bar{background:linear-gradient(135deg,rgba(110,168,255,.2),rgba(123,255,191,.18));border-top:1px solid #1f2a4a;border-bottom:1px solid #1f2a4a;padding:26px 0}
+    .cta-bar .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .pill{padding:8px 12px;border-radius:999px;background:rgba(110,168,255,.12);border:1px solid #2a3b68;color:#cfe0ff}
+    .list-clean{margin:0;padding-left:18px}
+    .list-clean li{margin:6px 0}
+    .stroke{border:1px dashed #2a3b68;border-radius:12px;padding:18px}
+    .spark{position:relative}
+    .spark:after{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;background:conic-gradient(from 180deg at 50% 50%, rgba(123,255,191,.18), rgba(110,168,255,.18), rgba(123,255,191,.18));filter:blur(20px);opacity:.4}
+    @media (max-width: 900px){
+      .grid-3,.grid-2{grid-template-columns:1fr}
+      .title{font-size:30px}
+      section{padding:48px 0}
+    }
+  
+    /* === Readability upgrades for key sections === */
+    #how, #cases, #form { position: relative; }
+    #how::before, #cases::before, #form::before{
+      content:""; position:absolute; inset:0; 
+      background: radial-gradient(1200px 600px at 50% -10%, rgba(123,255,191,.10), transparent 60%),
+                  linear-gradient(180deg, rgba(15,22,46,.85), rgba(15,22,46,.85));
+      z-index:0;
+    }
+    #how .container, #cases .container, #form .container{ position:relative; z-index:1; }
+    #how .section-title, #cases .section-title, #form .section-title{ color:#f5f8ff; }
+    #how .card, #cases .case, #form .card{
+      background: rgba(20, 28, 56, 0.95);
+      border-color: #2a3b68;
+      color: #f5f8ff;
+    }
+    #how .card p, #cases .case p, #form .card p, 
+    #how .card .muted, #cases .case .muted, #form .card .muted{
+      color:#d7e4ff;
+    }
+    #cases a, #form a{ color:#9ec2ff; text-decoration: underline; }
+    #form input, #form textarea, #form select{
+      background: #0f162e; border:1px solid #3d5796; color:#e6ecff;
+    }
+    #form input::placeholder, #form textarea::placeholder{ color:#9fb1d9; }
+    #form label{ color:#cfe0ff; }
+    /* Buttons in these sections pop brighter */
+    #how .btn-primary, #cases .btn-primary, #form .btn-primary{
+      box-shadow: 0 10px 28px rgba(110,168,255,.45);
+    }
+
+
+    #cases .case{
+      border-radius: var(--radius);
+      background: rgba(20, 28, 56, 0.95);
+      border: 1px solid #2a3b68;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+
+    #cases .case{
+      padding: 28px;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    #cases .case:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(110,168,255,.25);
+      border-color: var(--accent);
+    }
+
+
+    .card{
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(110,168,255,.25);
+      border-color: var(--accent);
+    }
+
+
+    /* === Scroll animations === */
+    .reveal{opacity:0;transform:translateY(30px);transition:all .8s ease;}
+    .reveal.active{opacity:1;transform:translateY(0);}
+
+
+    #legal summary {color: var(--accent);}
+    #legal details[open] summary {margin-bottom: 16px;}
+
+
+    /* === Fixed CTA button === */
+    .fixed-cta{
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 100;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), #5c8dff);
+      color: #0b1020;
+      font-weight: 800;
+      border: 1px solid rgba(110,168,255,.8);
+      box-shadow: 0 16px 36px rgba(110,168,255,.35);
+      transition: transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+    }
+    .fixed-cta:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(110,168,255,.45);
+    }
+    .fixed-cta svg{width:18px;height:18px}
+    @media (max-width: 600px){
+      .fixed-cta{right: 14px; bottom: 14px; padding: 12px 14px;}
+    }
+
+    /* === Scroll progress bar === */
+    .scroll-progress{
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: rgba(255,255,255,.06);
+      z-index: 200;
+    }
+    .scroll-progress .bar{
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #7bffbf, #6ea8ff);
+      box-shadow: 0 0 12px rgba(110,168,255,.6);
+      transition: width .1s linear;
+    }
+
+
+/* === Mobile & Accessibility Optimizations === */
+@media (max-width: 900px){
+  .container{padding:0 16px}
+  .hero{padding:56px 0 36px}
+  .title{font-size:28px; line-height:1.2}
+  .subtitle{font-size:16px}
+  section{padding:44px 0}
+  .grid-3,.grid-2{grid-template-columns:1fr; gap:14px}
+  header .wrap{padding:10px 0}
+  header nav{display:flex;flex-wrap:wrap;gap:8px}
+  header nav a{font-size:14px;margin-left:0;padding:6px 8px;border:1px solid #223159;border-radius:10px}
+  .btn{padding:12px 16px;border-radius:12px}
+  .price{font-size:22px}
+  .badge{font-size:11px;padding:6px 9px}
+  .card{padding:16px}
+  #cases .case{padding:20px}
+  form .card label{font-size:14px}
+  form input, form textarea, form select{height:48px}
+  .cta-bar{padding:18px 0}
+}
+@media (max-width: 600px){
+  .fixed-cta{
+    right: max(12px, env(safe-area-inset-right));
+    bottom: max(12px, env(safe-area-inset-bottom));
+    padding: 12px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+  }
+  .fixed-cta svg{width:16px;height:16px}
+  .section-title{font-size:22px}
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .reveal,.reveal-up,.reveal-left,.reveal-right{transition:none !important; transform:none !important; opacity:1 !important;}
+  .btn,.card,.fixed-cta{transition:none !important}
+}
+
+</style>
+
+</head>
+<body>
+  <header>
+    <div class="container wrap">
+      <div class="logo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12l18-8-4 16-5-5-5 3 2-6 7 5" stroke="#7bffbf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Telegram‑Apps Studio</span></div>
+      <nav>
+        <a href="#how">Как работает</a>
+        <a href="#packages">Пакеты</a>
+        <a href="#cases">Кейсы</a>
+        <a href="#process">Процесс</a>
+        <a href="#form">Демо</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero reveal">
+      <div class="container">
+        <h1 class="title">Больше клиентов из Telegram за 14 дней — без звонков и лишних приложений</h1>
+        <p class="subtitle">Мы создаём миниапы и ботов с онлайн‑записью, каталогом и оплатой через СБП. Типично клиенты видят прирост заявок на 30%+ в первый месяц.</p>
+        <div class="actions">
+          <a href="#form" class="btn btn-primary">Получить демо бесплатно</a>
+          <a href="#cases" class="btn btn-outline">Посмотреть примеры</a>
+        </div>
+        <div class="card" style="margin-top:12px;">
+  <div style="margin-top:16px;">
+          <span class="badge">21 день</span>
+          <span class="badge">СБП/эквайринг</span>
+          <span class="badge">Без звонков</span>
+          <span class="badge">Поддержка 30 дней</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem & Value -->
+    <section class="reveal">
+      <div class="container">
+        <h2 class="section-title">Клиенты уходят, если нельзя быстро записаться и оплатить</h2>
+        <div class="grid-3">
+          <div class="card glass">
+            <h3>Онлайн‑запись</h3>
+            <p class="muted">Клиент выбирает услугу, дату и время прямо в Telegram. Подтверждение и напоминания — автоматически.</p>
+          </div>
+          <div class="card glass">
+            <h3>Каталог</h3>
+            <p class="muted">Фотографии, описание и цены. Быстрый выбор из мессенджера без установки приложений.</p>
+          </div>
+          <div class="card glass">
+            <h3>Оплата СБП/картой</h3>
+            <p class="muted">Ссылки оплаты, QR, чек. Комиссии ниже классического эквайринга.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="reveal" style="background:#f8fafc;">
+      <div class="container">
+        <h2 class="section-title">От первого клика до оплаты — за 30 секунд</h2>
+        <div class="grid-3">
+          <div class="card glass">
+            <strong>1. Каталог</strong>
+            <p class="muted">Услуги/товары, фото, описания, цены.</p>
+          </div>
+          <div class="card glass">
+            <strong>2. Запись</strong>
+            <p class="muted">Выбор времени, подтверждение, напоминания.</p>
+          </div>
+          <div class="card glass">
+            <strong>3. Оплата</strong>
+            <p class="muted">СБП/карта. Автоуведомления об оплате в CRM/таблицу.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Packages -->
+    <section id="packages" class="reveal">
+      <div class="container">
+        <h2 class="section-title">Фикс‑пакеты</h2>
+        <div class="grid-3">
+          <div class="card glass">
+            <h3>Base</h3>
+            <ul>
+              <li>Каталог, запись, напоминания</li>
+              <li>Оплата через СБП/эквайринг</li>
+              <li>Поддержка 30 дней</li>
+            </ul>
+            <p class="muted">Срок: 28 дней</p>
+            <p class="price">79 900 ₽</p>
+            <a href="#form" class="btn btn-primary">Заказать Base</a>
+          </div>
+
+          <div class="card glass">
+            <h3>Pro</h3>
+            <ul>
+              <li>Все из Base + рассылки</li>
+              <li>Карты лояльности/скидки</li>
+              <li>Интеграция amoCRM/Б24</li>
+              <li>Мультиязычность</li>
+            </ul>
+            <p class="muted">Срок: 28 дней</p>
+            <p class="price">119 900 ₽</p>
+            <a href="#form" class="btn btn-primary">Заказать Pro</a>
+          </div>
+
+          <div class="card glass">
+            <h3>Rush</h3>
+            <ul>
+              <li>Все из Pro</li>
+              <li>Запуск за 7–14 дней</li>
+              <li>Кастомный дизайн</li>
+              </ul>
+            <p class="muted">Срок: 10–14 дней</p>
+            <p class="price">149 900 ₽</p>
+            <a href="#form" class="btn btn-primary">Заказать Rush</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cases -->
+    <section id="cases" class="reveal" class="cases" style="background:#f8fafc;">
+      <div class="container">
+        <h2 class="section-title">Кейсы</h2>
+        <div class="grid-3">
+          <div class="case">
+            <h3>Доставка еды по подписке</h3>
+            <p class="muted">Умный бот‑нутрициолог в Telegram давал советы по питанию и напоминал о планах. Рост удержания и продлений подписок месяц к месяцу.</p>
+            <p><a href="https://t.me/food_Gramm_Bot" target="_blank" rel="noopener">Открыть демонстрацию</a></p>
+          </div>
+          <div class="case">
+            <h3>Туристическое агентство</h3>
+            <p class="muted">Бот‑планировщик маршрутов формировал удобные планы поездок. Выросла лояльность и доля клиентов, оформивших тур именно у агентства.</p>
+            <p><a href="https://t.me/food_Gramm_Bot" target="_blank" rel="noopener">Открыть демонстрацию</a></p>
+          </div>
+          <div class="case">
+            <h3>Фитнес‑зал</h3>
+            <p class="muted">Миниап с услугами, историей посещений, записью на тренировки и пропуском в зал прямо из Telegram. Клиентам понравилась простота — лояльность заметно выросла.</p>
+            <p><a href="https://t.me/travel_gramm_bot" target="_blank" rel="noopener">Открыть демонстрацию</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    
+    <!-- Process -->
+    <section id="process" class="reveal">
+      <div class="container">
+        <h2 class="section-title">Как мы работаем</h2>
+        <ol>
+          <li><strong>Демо.</strong> Вы кратко описываете задачу — через 3 суток бесплатно показываем 3 экрана будущего приложения.</li>
+          <li><strong>Обсуждение логики.</strong> Подробно прорабатываем сценарии, роли пользователей и интеграции.</li>
+          <li><strong>Договор‑оферта.</strong> Фиксируем пакет, стоимость и сроки.</li>
+          <li><strong>Разработка.</strong> Настройка, дизайн, тестирование.</li>
+          <li><strong>Запуск и обучение.</strong> Помогаем запустить и обучаем команду.</li>
+          <li><strong>Поддержка 30 дней и доработки.</strong> Собираем обратную связь и улучшаем.</li>
+        </ol>
+        <div class="kpis">
+          <span class="pill">Типичный прирост заявок: 30%+</span>
+          <span class="pill">Срок запуска: от 10 до 28 дней</span>
+          <span class="pill">SLA ответа: ≤24 ч</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Payment & Guarantee -->
+    
+
+    <!-- Form -->
+    <section id="form" class="reveal" style="background:#f8fafc;">
+      <div class="container">
+        <h2 class="section-title">Получить бесплатное демо</h2>
+        <p class="muted">Укажите контакты — пришлём 3 скрина вашего будущего бота и предложим время звонка/созвона в Telegram.</p>
+        <form method="get" action="https://t.me/food_Gramm_Bot" style="max-width:680px;">
+          <div class="grid-2">
+            <div class="card glass">
+              <label>Ваше имя</label>
+              <input type="text" required placeholder="Имя" style="width:100%;padding:12px;border:1px solid #e2e8f0;border-radius:10px;">
+            </div>
+            <div class="card glass">
+              <label>Контакт (Telegram или e‑mail)</label>
+              <input type="text" required placeholder="@username или email" style="width:100%;padding:12px;border:1px solid #e2e8f0;border-radius:10px;">
+            </div>
+          </div>
+          <div class="card" style="margin-top:12px;">
+            <label>Ниша/бизнес</label>
+            <input type="text" required placeholder="Фитнес, доставка еды, клиника, салон..." style="width:100%;padding:12px;border:1px solid #e2e8f0;border-radius:10px;">
+          </div>
+          <div class="card" style="margin-top:12px;">
+  <div style="margin-top:16px;">
+            <button class="btn btn-primary" type="submit">Отправить и открыть демо</button>
+            <a class="btn btn-outline" href="mailto:hello@telegram-apps.studio">Написать на e‑mail</a>
+          </div>
+          <p class="footnote">Нажимая кнопку, вы соглашаетесь с <a href="#legal">офертой</a> и <a href="#legal">политикой ПДн</a>.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- CTA bar -->
+    <div class="cta-bar">
+      <div class="container wrap">
+        <div><strong>Готовы прибавить к заявкам 30%+?</strong> Запишитесь на демо — 15 минут.</div>
+        <div>
+          <a href="#form" class="btn btn-primary">Получить демо</a>
+          <a href="https://t.me/travel_gramm_bot" class="btn btn-outline">Посмотреть второй пример</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Legal -->
+    <section id="legal" class="reveal">
+      <div class="container legal"><details><summary style="cursor:pointer;font-size:18px;font-weight:600;margin-bottom:12px;">Показать документы</summary>
+        <h2 class="section-title">Документы</h2>
+        <div class="grid-2">
+          <div class="card glass">
+            <h3>Публичная оферта</h3>
+            <p><strong>1. Предмет.</strong> Разработка, настройка и внедрение Telegram‑миниапа/бота по выбранному пакету (Base/Pro/Rush).</p>
+            <p><strong>2. Сроки.</strong> В соответствии с пакетом. ТЗ согласуется перед стартом.</p>
+            <p><strong>3. Стоимость и оплата.</strong> Фикс‑цена пакета. Оплата: СБП/карта/безнал. Акцепт оферты — оплата или заявка.</p>
+            <p><strong>4. Гарантия.</strong> Работоспособность 30 дней после сдачи. Ориентир — рост заявок, удержания и LTV.</p>
+            <p><strong>5. Права и обязанности.</strong> Заказчик предоставляет материалы и доступы; Исполнитель может привлекать команду.</p>
+            <p><strong>6. Ответственность.</strong> В пределах стоимости услуг.</p>
+            <p><strong>7. Реквизиты.</strong> Индивидуальный предприниматель / НПД. Реквизиты и контакты указываются в счёте и договоре‑оферте.</p>
+          </div>
+          <div class="card glass">
+            <h3>Политика ПДн</h3>
+            <p><strong>1. Оператор.</strong> Индивидуальный предприниматель / НПД. Контакты: hello@telegram-apps.studio.</p>
+            <p><strong>2. Данные.</strong> Имя, контакты, данные бизнеса. Хранение на серверах в РФ. Срок — до отзыва согласия.</p>
+            <p><strong>3. Основание.</strong> Согласие субъекта, исполнение договора.</p>
+            <p><strong>4. Права субъекта.</strong> Доступ/исправление/удаление по запросу на e‑mail.</p>
+            <p><strong>5. Передача третьим лицам.</strong> Только по закону или для обработки заказа (платёжные провайдеры).</p>
+          </div>
+        </div>
+        <p class="footnote">© Telegram‑Apps Studio. Все права защищены. Боты‑демо: <a href="https://t.me/food_Gramm_Bot" target="_blank" rel="noopener">@food_Gramm_Bot</a>, <a href="https://t.me/travel_gramm_bot" target="_blank" rel="noopener">@travel_gramm_bot</a>.</p>
+      </details></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <strong>Telegram‑Apps Studio</strong><br>
+          Разработка миниапов и ботов для продаж, записи и оплат в Telegram.
+        </div>
+        <div>
+          Контакты: <a href="mailto:hello@telegram-apps.studio">hello@telegram-apps.studio</a> · Telegram: <a href="https://t.me/food_Gramm_Bot" target="_blank" rel="noopener">@food_Gramm_Bot</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const reveals = document.querySelectorAll('.reveal');
+  const revealOnScroll = () => {
+    for (let el of reveals){
+      const windowHeight = window.innerHeight;
+      const elementTop = el.getBoundingClientRect().top;
+      const elementVisible = 50;
+      if (elementTop < windowHeight - elementVisible){
+        el.classList.add("active");
+      }
+    }
+  };
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+});
+</script>
+
+
+  <div class="scroll-progress"><div class="bar" id="scrollBar"></div></div>
+  <a href="#form" class="fixed-cta" aria-label="Получить демо">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 5v14M5 12h14" stroke="#0b1020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Получить демо
+  </a>
+
+
+<script>
+(function(){
+  const bar = document.getElementById('scrollBar');
+  const onScroll = () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    if (bar) bar.style.width = progress + '%';
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
+</script>
+
+</body>
+</html>
